@@ -5,32 +5,16 @@ import View from 'ol/View';
 import Tile from 'ol/layer/Tile';
 import { XYZ } from 'ol/source';
 
-import { onMounted, onUnmounted } from 'vue'
 
-let map: Map;
-let initMap: () => void;
-
-export const getMapInstance = (): Map => {
-  return map as Map;
-};
-
-export const updateMap = (): void => {
-  if (map) {
-    map.dispose();
-  }
-
-  initMap();
-};
-
-export const useInitMap = (): void => {
-    initMap = async (): Promise<void> => {
-     
-  
-      map = new Map({
+//Pattern singleton
+export class OpenLayersMap {
+    private static mapInstance: Map;
+    private static createMapInstance() {
+      return new Map({
         interactions: [
           new DragPan({
             kinetic: new Kinetic(-50, 30, 1000),
-            condition: (e) => true,
+            condition: () => true,
           }),
         ],
         view: new View({
@@ -49,16 +33,22 @@ export const useInitMap = (): void => {
         ],
         target: 'map',
       });
-    
-  
-    
     };
-  
-    onMounted(() => {
-      updateMap()
-    });
-    onUnmounted(() => {
-      
-    });
-  };
+    public static getMap() {
+      if (!OpenLayersMap.mapInstance) {
+        OpenLayersMap.mapInstance = OpenLayersMap.createMapInstance()
+      }
+      return OpenLayersMap.mapInstance
+    }
+
+    public static updateMap() {
+      OpenLayersMap.getMap()?.dispose()
+      OpenLayersMap.mapInstance = OpenLayersMap.createMapInstance()
+    }
+
+    public static destroyMap() {
+      OpenLayersMap.getMap()?.dispose()
+    }
+  }
+
   

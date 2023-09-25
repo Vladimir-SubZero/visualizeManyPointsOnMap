@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import { useInitMap } from '../compositionUtils/useInitMap.ts'
+import { useMap } from '../compositionUtils/useOlMap.ts'
 
-useInitMap()
+useMap()
 
 
 </script>
