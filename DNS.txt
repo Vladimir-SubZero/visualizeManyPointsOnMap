@@ -1,0 +1,4 @@
+1. Create a TXT record in your DNS configuration for the following hostname: _github-pages-challenge-Vladimir-SubZero.performance-cards.ru
+2. Use this code for the value of the TXT record: ecf22a29327bdea430e7371b5a5bbd
+3. Wait until your DNS configuration changes. This could take up to 24 hours to propagate.
+  
