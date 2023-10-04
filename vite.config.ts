@@ -19,18 +19,18 @@ export default defineConfig({
   ],
   base: './',
   build: {
-    rollupOptions: {
-      output: {
+    // rollupOptions: {
+    //   output: {
       
-        assetFileNames: () => {
-          return `[name]-[hash][extname]`;
-        },
+    //     assetFileNames: () => {
+    //       return `[name]-[hash][extname]`;
+    //     },
       
-        chunkFileNames: '[name]-[hash].js',
+    //     chunkFileNames: '[name]-[hash].js',
       
-        entryFileNames: '[name]-[hash].js',
-      },
-    },
+    //     entryFileNames: '[name]-[hash].js',
+    //   },
+    // },
   },
   resolve: {
     // alias: {
