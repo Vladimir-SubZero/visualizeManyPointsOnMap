@@ -4,7 +4,7 @@ export const appRouter = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/',
+      path: '/visualizeManyPointsOnMap',
       name: 'Cities',
       component: Cities,
     },
