@@ -4,7 +4,7 @@ export const appRouter = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/ol',
+      path: '/',
       name: 'Cities',
       component: Cities,
     },

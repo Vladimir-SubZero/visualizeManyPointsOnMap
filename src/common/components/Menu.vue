@@ -8,7 +8,7 @@
       active-text-color="#ffd04b"
       @select="handleSelect"
     >
-      <el-menu-item index="1"><router-link to="/ol">Open Layers</router-link></el-menu-item>
+      <el-menu-item index="1"><router-link to="/">Open Layers</router-link></el-menu-item>
       <el-menu-item index="2"><router-link to="/laflet">Laflet</router-link></el-menu-item>
       <el-menu-item index="3"><router-link to="/yandex">Яндекс</router-link></el-menu-item>
       <el-menu-item index="4"><router-link to="/google">Google</router-link></el-menu-item>
