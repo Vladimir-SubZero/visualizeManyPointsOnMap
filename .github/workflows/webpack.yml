@@ -22,14 +22,30 @@ jobs:
       run: |
         npm install
         npm run build
-    
+
+    - name: Use the Upload Artifact GitHub Action
+      uses: actions/upload-pages-artifact@v2
+      with:
+        name: app-build
+        path: dist/
+
     - name: Deploy to GH Pages 🚀
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: dist
-  # - name: Deploy
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with: 
-      #     folder: dist # The folder the action should deploy.
-      #     git-config-name: Vladimir-SubZero.github.io
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        with:
+          artifact_name: app-build
