@@ -17,6 +17,20 @@ export default defineConfig({
     }),
   
   ],
+  build: {
+    // rollupOptions: {
+    //   output: {
+      
+    //     assetFileNames: () => {
+    //       return `[name]-[hash][extname]`;
+    //     },
+      
+    //     chunkFileNames: '[name]-[hash].js',
+      
+    //     entryFileNames: '[name]-[hash].js',
+    //   },
+    // },
+  },
   resolve: {
     // alias: {
     //   '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -24,5 +38,6 @@ export default defineConfig({
     alias: [
       { find: '@', replacement: path.resolve(__dirname, 'src') },
     ],
+    
   },
 })
