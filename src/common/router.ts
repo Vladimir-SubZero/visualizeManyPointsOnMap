@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory, RouteLocationNormalized } from 'vue-router';
-import Cities from '@/pages/ol/components/Cities.vue'
+import Orders from '@/pages/ol/components/Orders.vue'
 export const appRouter = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/visualizeManyPointsOnMap',
-      name: 'Cities',
-      component: Cities,
+      name: 'Orders',
+      component: Orders,
     },
   ],
 });
