@@ -80,6 +80,10 @@ jobs:
         run: npm install
       - name: Test aplication
         run: npm run test
+      - name: Linter check aplication
+        run: npm run lint
+      - name: Linter template aplication
+        run: npm run lint-template
       - name: Build
         run: npm run build
       - name: Setup Pages

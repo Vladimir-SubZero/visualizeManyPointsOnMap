@@ -1,14 +1,11 @@
 <template>
   <div>Tooltip</div>
 </template>
-  
-
-  
 
 <script lang="ts">
-export default {
-    name: 'OrderTooltip', 
-}
+  export default {
+    name: 'OrderTooltip',
+  };
 </script>
 <script lang="ts" setup>
   import { defineProps } from 'vue';
@@ -17,14 +14,11 @@ export default {
     message: {
       type: String,
       required: false,
-      default: '1'
-    }
-  })
+      default: '1',
+    },
+  });
 
   console.log(props.message);
-  
 </script>
 
-<style lang='sass' scoped>
-
-</style>
+<style lang="sass" scoped></style>

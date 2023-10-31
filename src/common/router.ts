@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteLocationNormalized } from 'vue-router';
-import Orders from '@/pages/ol/components/Orders.vue'
+import Orders from '@/pages/ol/components/Orders.vue';
 export const appRouter = createRouter({
   history: createWebHistory(),
   routes: [

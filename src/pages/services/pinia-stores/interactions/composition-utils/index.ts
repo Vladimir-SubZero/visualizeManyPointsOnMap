@@ -23,9 +23,6 @@
 // import { useLocationIconsLayer } from '@/features/planning/pages/orders-planning-page/modules/planning-map/composition-utils/layers/useLocationIconsLayer';
 // import { usePlanningUiInteractionStore } from '@/features/planning/pages/orders-planning-page/services/pinia-stores/ui-interactions';
 
-
-
-
 // export const useInitListeners = (): void => {
 
 //   const removeOrdersFromGisMap = (ordersIds: number[]): void => {
@@ -41,7 +38,6 @@
 //   }): void => {
 //     updateOrders(data.newOrders, data.oldOrdersIds);
 //   };
-
 
 //   onBeforeMount(() => {
 //     eventEmitter.on('removeOrdersFromGisMap', removeOrdersFromGisMap);
