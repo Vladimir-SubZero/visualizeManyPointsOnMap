@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <div id="map" class="map"></div>
-    <div>Hallow world</div>
+    <div></div>
   </div>
 </template>
 
