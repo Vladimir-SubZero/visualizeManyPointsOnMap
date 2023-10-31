@@ -78,6 +78,8 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm install
+      - name: Test aplication
+        run: npm run test
       - name: Build
         run: npm run build
       - name: Setup Pages
