@@ -26,17 +26,17 @@
           "tabWidth": 2,
           "semi": true,
           "singleQuote": true,
-          "printWidth": 120,
-        },
+          "printWidth": 120
+        }
       ],
-      "@typescript-eslint/no-var-requires": 0,
+      "@typescript-eslint/no-var-requires": 0
     },
     "overrides": [
       {
         "files": ["**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)"],
         "env": {
-          "jest": true,
-        },
-      },
-    ],
+          "jest": true
+        }
+      }
+    ]
   }
