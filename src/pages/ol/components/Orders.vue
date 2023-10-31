@@ -1,6 +1,7 @@
 <template>
   <div class="root">
-    <div id="map" class="map">{{ Number(counter) + 12 }}</div>
+    <div id="map" class="map"></div>
+    <div>Hallow world</div>
   </div>
 </template>
 
@@ -11,10 +12,7 @@
 </script>
 <script setup lang="ts">
   import { useMap } from '../compositionUtils/useOlMap.ts';
-  import { computed } from 'vue';
-  const counter = computed(() => {
-    return true;
-  });
+
   useMap();
 </script>
 
