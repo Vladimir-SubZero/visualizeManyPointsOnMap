@@ -1,4 +1,4 @@
-export const debounceWrapper = <Func extends (...args: any[]) => any>(
+export const debounceWrapper = <Func extends (...args: unknown[]) => ReturnType<Func> | PromiseLike<ReturnType<Func>>>(
   wrapped: Func,
   delay = 1500,
 ): ((...args: Parameters<Func>) => Promise<ReturnType<Func>>) => {
