@@ -1,6 +1,4 @@
 
-
-
 export type JsTypesInLowerCase =
   | 'string'
   | 'number'
