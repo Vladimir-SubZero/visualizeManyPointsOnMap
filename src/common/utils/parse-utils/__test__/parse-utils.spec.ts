@@ -3,7 +3,7 @@ import {
   getStringOnly,
   getNumericString,
   getNumberOnly,
-} from '@/common/utils/parse-utils/parse-utils';
+} from 'src/common/utils/parse-utils/parse-utils';
 
 describe('Тесты для parse-utils', () => {
   describe('isNotEmptyString(): boolean', () => {
