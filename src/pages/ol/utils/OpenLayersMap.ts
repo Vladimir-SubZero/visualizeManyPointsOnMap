@@ -1,14 +1,19 @@
+import VectorImageLayer from 'ol/layer/VectorImage';
+const pointsLayer = new VectorImageLayer()
+
 import { Map } from 'ol';
 import { DragPan } from 'ol/interaction';
 import Kinetic from 'ol/Kinetic';
 import View from 'ol/View';
 import Tile from 'ol/layer/Tile';
 import { XYZ } from 'ol/source';
+import { polylineRouteLayer } from '@/pages/ol/ol/layers/getRouteLayer.ts';
 
 //Pattern singleton
 export class OpenLayersMap {
   private static mapInstance: Map;
   private static createMapInstance() {
+    const routeLayer = polylineRouteLayer();
     return new Map({
       interactions: [
         new DragPan({
@@ -26,8 +31,9 @@ export class OpenLayersMap {
             url: 'http://tile2.maps.2gis.com/tiles?x={x}&y={y}&z={z}',
             tilePixelRatio: 2,
           }),
-          // source: new OSM()
         }),
+        routeLayer,
+        pointsLayer,
       ],
       target: 'map',
     });
