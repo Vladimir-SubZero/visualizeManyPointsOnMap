@@ -1,6 +1,3 @@
-import VectorImageLayer from 'ol/layer/VectorImage';
-const pointsLayer = new VectorImageLayer()
-
 import { Map } from 'ol';
 import { DragPan } from 'ol/interaction';
 import Kinetic from 'ol/Kinetic';
@@ -33,7 +30,6 @@ export class OpenLayersMap {
           }),
         }),
         routeLayer,
-        pointsLayer,
       ],
       target: 'map',
     });
