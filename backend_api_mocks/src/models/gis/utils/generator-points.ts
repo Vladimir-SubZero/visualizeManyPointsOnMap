@@ -45,12 +45,9 @@ export const getOrders = (
     }
     return c;
   };
-  // const randomCoords = getCoordinatesForStopsInSchedulingZone(
-  //   extend,
-  //   countCoordinatesInZone,
-  // );
 
-  //Распределим координаты по зонам планирования
+
+  //Распределим координаты по зонам
   const territoryIdWithCoordinates: TerritoryIdWithCoordinates = {};
   territories.forEach((territory) => {
     const polygon = JSON.parse('[[' + territory.area.replace(/\|/g, '],[') + ']]');
