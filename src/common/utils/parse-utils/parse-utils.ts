@@ -1,4 +1,4 @@
-import { getRealType } from 'src/common/utils/type-check-utils/type-check-utils';
+import { getRealType } from '@/common/utils/type-check-utils/type-check-utils';
 
 export function isNotEmptyString(str: unknown): str is string {
   return getRealType(str) === 'string' && Boolean((str as string)?.trim());

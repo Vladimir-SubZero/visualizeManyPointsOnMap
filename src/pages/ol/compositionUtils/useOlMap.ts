@@ -5,6 +5,7 @@ import { onMounted, onUnmounted } from 'vue';
 
 export const useMap = (): void => {
   onMounted(() => {
+
     OpenLayersMap.updateMap();
   });
   onUnmounted(() => {
