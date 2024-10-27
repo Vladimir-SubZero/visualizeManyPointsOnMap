@@ -1,5 +1,5 @@
-import { JsTypesInLowerCase } from 'src/common/types/frontend-data-types';
-import { EmptyRecord, UnknownRecord } from 'src/common/types/frontend-utility-types';
+import { JsTypesInLowerCase } from '@/common/types/frontend-data-types';
+import { EmptyRecord, UnknownRecord } from '@/common/types/frontend-utility-types';
 
 type InputData = unknown | (() => UnknownRecord);
 

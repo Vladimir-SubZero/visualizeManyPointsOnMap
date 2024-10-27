@@ -1,5 +1,12 @@
 <script setup lang="ts">
+  import { onMounted } from 'vue'
   import Menu from './common/components/Menu.vue';
+  import { useOrdersStore } from '@/pages/services/pinia-stores/ordersStore'
+  const ordersStore = useOrdersStore()
+
+  onMounted(() => {
+    ordersStore.loadOrders()
+  })
 </script>
 
 <template>

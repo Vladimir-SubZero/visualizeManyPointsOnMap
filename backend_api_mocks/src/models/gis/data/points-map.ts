@@ -1,5 +1,5 @@
 import {
-  Order, ResponseBodyOrders
+  ResponseBodyOrders
 } from '../../../common/dto-types'
 import { getOrders } from '../utils/generator-points'
 
@@ -43,5 +43,4 @@ import { getOrders } from '../utils/generator-points'
 // };
 
 //Количество заказов не должно быть меньше количества зон
-export const bodyOrders: ResponseBodyOrders =
-  getOrders(15);
+export const bodyOrders: (countOrders: number) => ResponseBodyOrders = getOrders;

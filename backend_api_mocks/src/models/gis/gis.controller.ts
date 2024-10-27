@@ -1,6 +1,7 @@
 import {
   Controller,
   Get,
+  Query,
 } from '@nestjs/common';
 import { bodyOrders } from './data/points-map'
 
@@ -12,8 +13,8 @@ export class GisController {
   /*Common requests*/
 
   @Get('/gis-api/orders')
-  getOrders() {
-    return bodyOrders;
+  getOrders(@Query('countOrders') countOrders: string) {
+    return bodyOrders(Number(countOrders));
   }
 
 

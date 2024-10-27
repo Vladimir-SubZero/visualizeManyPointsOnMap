@@ -33,4 +33,18 @@ export default defineConfig({
     // }
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
   },
+  server: {
+    proxy: {
+      '/gis': {
+        target: 'http://localhost:3020',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
+  },
+  test: {
+    browser: {
+      enabled: false,
+    },
+  },
 });

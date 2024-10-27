@@ -1,3 +1,4 @@
+import {describe, it, expect, test } from 'vitest'
 import { getRealType, isObject } from '@/common/utils/type-check-utils/type-check-utils';
 
 describe('Тесты для type-check-utils', () => {

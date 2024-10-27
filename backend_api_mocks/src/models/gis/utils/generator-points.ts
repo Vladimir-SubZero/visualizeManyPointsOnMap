@@ -20,7 +20,9 @@ export const getOrders = (
 ): ResponseBodyOrders => {
   const countTerritories = territories.length;
   const countCoordinatesInTerritory = Math.floor(countOrders / countTerritories);
-
+  console.log('countOrders', countOrders)
+  console.log('countTerritories', countTerritories)
+  console.log('countCoordinatesInTerritory', countCoordinatesInTerritory)
   //Функция проверяет, входит ли точка с координатами в полигон или нет
   const coordsInPolygon = (
     lon: number,
@@ -136,10 +138,10 @@ export const getOrders = (
     zoneId: number,
     isDrop: boolean,
   ): Order => {
-
+    const orderId = getRandomNumber(200000, 100)
     return {
-      orderId: getRandomNumber(200000, 100),
-      name: 'Заказ_' + this.orderId,
+      orderId,
+      name: 'Заказ_' + orderId,
       status: 'new',
       location: {
         id: getRandomNumber(200000, 100),
