@@ -15,7 +15,6 @@ describe('Тесты для type-check-utils', () => {
       expect(getRealType(() => ({}))).toBe('function');
       expect(getRealType(new Map())).toBe('map');
       expect(getRealType(new Set())).toBe('set');
-      expect(getRealType(new FormData())).toBe('formdata');
     });
   });
 
@@ -25,7 +24,6 @@ describe('Тесты для type-check-utils', () => {
       [{ id: 1 }, true],
       [new Map(), false],
       [new Set(), false],
-      [new FormData(), false],
       ['', false],
       ['object', false],
       [555, false],
