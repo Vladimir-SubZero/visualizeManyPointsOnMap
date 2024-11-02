@@ -8,21 +8,29 @@
     active-text-color="#ffd04b"
     @select="handleSelect"
   >
-    <el-menu-item index="1"><router-link to="/visualizeManyPointsOnMap">Планирование</router-link></el-menu-item>
-    <el-menu-item index="2"><router-link to="/laflet">Настройки</router-link></el-menu-item>
-    <el-menu-item index="3"><router-link to="/yandex">Справка</router-link></el-menu-item>
-    <!-- <el-menu-item index="4"><router-link to="/google">Google</router-link></el-menu-item> -->
+    <el-menu-item index="1"><router-link to="/visualizeManyPointsOnMap">Карта №1</router-link></el-menu-item>
+    <el-menu-item index="2"><router-link to="/laflet">Карта №2</router-link></el-menu-item>
+    <el-menu-item index="3"><router-link to="/yandex">Карта №3</router-link></el-menu-item>
+
   </el-menu>
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue';
+  import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router'
 
-  const activeIndex = ref('1');
+const router = useRouter()
 
-  const handleSelect = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath);
-  };
+const activeIndex = ref('1');
+
+const handleSelect = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath);
+};
+
+onMounted(() => {
+  router.push('/visualizeManyPointsOnMap')
+})
+
 </script>
 
 <script lang="ts">

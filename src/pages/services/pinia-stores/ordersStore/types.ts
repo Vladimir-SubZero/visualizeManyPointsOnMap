@@ -12,7 +12,7 @@ type State = {
   ordersApi: {
     serverData: Nullable<ResponseBodyOrders>;
     convertedServerData: {
-      convertedOrders: Order[]
+      convertedOrders: Nullable<Order[]>;
     };
     loadingState: DataStateKey;
     backendApiError: Nullable<BackendApiError>;
@@ -21,11 +21,11 @@ type State = {
 };
 
 type Getters = {
-  getOrders: (state: State) => State['ordersApi']['serverData']['orders'] | [];
+  getOrders: (state: State) => Order[];
 
 };
 
 type Actions = {
-  loadOrders: () => Promise<void>;
+  loadOrders: (countOrders?: number) => Promise<void>;
 
 };

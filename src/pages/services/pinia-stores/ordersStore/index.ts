@@ -12,6 +12,7 @@ import { getRequestAbortController } from '@/common/request-abort-controller'
 import { handleRequestError } from '@/common/utils/error/handle-request-error'
 import { BackendApiError } from '@/common/types/frontend-data-types'
 import { OrdersStore } from '@/pages/services/pinia-stores/ordersStore/types'
+import { loadOrdersOnGisMap } from '@/pages/ol/actions/ordersActions.ts'
 
 const abortControllers: Record<'loadOrders', Nullable<AbortController>> = {
   loadOrders: null,
@@ -31,31 +32,32 @@ export const initialState: State = {
     loadingState: getDataNotAskedKey(),
     backendApiError: null,
   },
-} as State;
+};
 
 export const useOrdersStore = defineStore<'ordersStore', State, Store['getters'], Store['actions']>({
   id: 'ordersStore',
   state: () => ({ ...cloneDeep(initialState) }),
   getters: {
     getOrders(state) {
-      return state.ordersApi.serverData;
+      return state.ordersApi.convertedServerData.convertedOrders ?? [];
     },
   },
   actions: {
 
 
-    async loadOrders() {
+    async loadOrders(countOrders = 100) {
       const ordersStore = useOrdersStore()
       const ordersApi = ordersStore.ordersApi
       try {
         ordersApi.loadingState = getDataLoadingKey();
         abortControllers.loadOrders = getRequestAbortController()
-        const { data } = await requestOrders({countOrders: 100}, abortControllers.loadOrders.signal);
-
-        ordersApi.backendApiError = null;
-        ordersApi.serverData = data;
-
-
+        const { data } = await requestOrders({countOrders}, abortControllers.loadOrders.signal);
+        if (data) {
+          ordersApi.backendApiError = null;
+          ordersApi.serverData = data;
+          ordersApi.convertedServerData.convertedOrders = data.orders
+          loadOrdersOnGisMap(data.orders)
+        }
         ordersApi.loadingState = getDataLoadedKey();
       } catch (error) {
         ordersApi.loadingState = getDataFailedKey();
