@@ -1,7 +1,4 @@
-import {
-  Order,
-  ResponseBodyOrders
-} from '../../../common/dto-types'
+import { Order, ResponseBodyOrders } from '../../../common/dto-types';
 
 import { territories } from '../data/territories';
 import { getRandomLonOrLat } from './get-random-lon-lat';
@@ -15,14 +12,11 @@ type Location = {
 type TerritoryIdWithCoordinates = {
   [key: number]: Location[];
 };
-export const getOrders = (
-  countOrders: number,
-): ResponseBodyOrders => {
+export const getOrders = (countOrders: number): ResponseBodyOrders => {
   const countTerritories = territories.length;
-  const countCoordinatesInTerritory = Math.floor(countOrders / countTerritories);
-  console.log('countOrders', countOrders)
-  console.log('countTerritories', countTerritories)
-  console.log('countCoordinatesInTerritory', countCoordinatesInTerritory)
+  const countCoordinatesInTerritory = Math.floor(
+    countOrders / countTerritories,
+  );
   //Функция проверяет, входит ли точка с координатами в полигон или нет
   const coordsInPolygon = (
     lon: number,
@@ -48,11 +42,12 @@ export const getOrders = (
     return c;
   };
 
-
-  //Распределим координаты по зонам
+  //Распределение координаты по зонам
   const territoryIdWithCoordinates: TerritoryIdWithCoordinates = {};
   territories.forEach((territory) => {
-    const polygon = JSON.parse('[[' + territory.area.replace(/\|/g, '],[') + ']]');
+    const polygon = JSON.parse(
+      '[[' + territory.area.replace(/\|/g, '],[') + ']]',
+    );
     const longs = []; // Массив X-координат полигона
     const lats = []; // Массив Y-координат полигона
     let minLat = null;
@@ -138,35 +133,38 @@ export const getOrders = (
     zoneId: number,
     isDrop: boolean,
   ): Order => {
-    const orderId = getRandomNumber(200000, 100)
+    const orderId = getRandomNumber(200000, 100);
     return {
       orderId,
       name: 'Заказ_' + orderId,
-      status: 'new',
+      status: 'inProgress',
       location: {
         id: getRandomNumber(200000, 100),
-        address: 'г Раменское, Молодежная ул, д 20',
+        address: 'г Москва, Молодежная ул, д 20',
         latitude: coords.latitude,
         longitude: coords.longitude,
       },
-      isDrop: isDrop,
+      isDelivery: isDrop,
       clientName: 'Иван',
-      isValid:true,
+      isValid: true,
       duration: getRandomNumber(200000, 100),
       volume: getRandomNumber(200000, 100),
       weight: getRandomNumber(200000, 100),
-      isKGT:  getRandomBoolean(),
-      schedulingZoneId: zoneId,
-      schedulingZoneName: 'Центральная',
-      contactNumber: '8-913-' + getRandomNumber(1000, 100).toString() + '-' + getRandomNumber(100, 10).toString() + '-' + getRandomNumber(100, 10).toString(),
-      contactPerson: '',
-      clientBarcode: ''
+      isKGT: getRandomBoolean(),
+      territoryId: zoneId,
+      territoryName: 'Центральная',
+      contactNumber:
+        '8-913-' +
+        getRandomNumber(1000, 100).toString() +
+        '-' +
+        getRandomNumber(100, 10).toString() +
+        '-' +
+        getRandomNumber(100, 10).toString(),
+      clientInfo: 'Иван, адрес: Москва, ул. Молодежная, д. 20',
     };
   };
 
-  const getBodyOrders = (
-    orders: Order[],
-  ): ResponseBodyOrders => {
+  const getBodyOrders = (orders: Order[]): ResponseBodyOrders => {
     return {
       orders: orders,
       total: orders.length,
@@ -185,7 +183,11 @@ export const getOrders = (
       const territoryCoordinates = territoryIdWithCoordinates[territoryId];
       for (let i = 0; i < territoryCoordinates.length; i++) {
         allOrders.push(
-          getOrder(territoryCoordinates[i], Number(territoryId), getRandomBoolean()),
+          getOrder(
+            territoryCoordinates[i],
+            Number(territoryId),
+            getRandomBoolean(),
+          ),
         );
       }
     }

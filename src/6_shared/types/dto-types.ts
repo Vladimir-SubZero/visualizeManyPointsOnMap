@@ -1,6 +1,8 @@
+
 export type RequestParams = {
   countOrders: number;
-};
+}
+
 export type ResponseBodyOrders = {
   orders: Order[];
   total: number;
@@ -9,6 +11,7 @@ export type ResponseBodyOrders = {
   warnings: string[];
   infos: string[];
 };
+
 
 export type Order = {
   orderId: number;
@@ -19,7 +22,7 @@ export type Order = {
     address: string;
     latitude: number;
     longitude: number;
-  };
+  },
   isDelivery: boolean;
   clientName?: string;
   isValid: boolean;
@@ -33,9 +36,10 @@ export type Order = {
   clientInfo?: string;
 };
 
+
 export type Territory = {
   id: number;
   name: string;
   area: string;
   color: string;
-};
+}

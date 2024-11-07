@@ -1,6 +1,6 @@
-import { Territory } from '../../../common/dto-types'
+import { Territory } from '../../../common/dto-types';
 
-export const territories: Territory[]  = [
+export const territories: Territory[] = [
   {
     id: 1,
     name: 'Мажайская',
