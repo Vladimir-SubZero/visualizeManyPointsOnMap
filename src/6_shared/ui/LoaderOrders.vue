@@ -2,10 +2,19 @@
 
 import { useOrdersStore } from '@/6_shared/services/pinia-stores/ordersStore'
 import { LoadingOrdersCount } from '@/6_shared/constants'
+import { computed } from 'vue';
 
-const ordersStore = useOrdersStore()
+
+const emits = defineEmits<{
+  (e: 'loadOrders', countOrders: number): void;
+}>()
+
+const ordersStore = useOrdersStore();
+const activeItem = computed(() => ordersStore.activeCountOrders);
+
+
 const loadOrders = (count: number) => {
-  ordersStore.loadOrders(count)
+  emits('loadOrders', count)
 }
 
 </script>
@@ -14,7 +23,12 @@ const loadOrders = (count: number) => {
   <div class="listOrders">
     <div class="counterOrders">Загрузить заказы</div>
     <div class="list">
-      <div v-for="count in LoadingOrdersCount" class="counterTile" @click="loadOrders(count)">
+      <div
+          v-for="count in LoadingOrdersCount"
+          class="counterTile"
+          :class="{'active': activeItem === count}"
+          @click="loadOrders(count)"
+      >
         <div> {{count}}</div>
       </div>
     </div>
@@ -38,4 +52,6 @@ const loadOrders = (count: number) => {
     &_number
       font-size: 12px
       margin-right: 5px
+  .active
+    background-color: #ffb882
 </style>

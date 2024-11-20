@@ -3,7 +3,7 @@ import { Icon, Style } from 'ol/style'
 
 import { Point } from 'ol/geom';
 
-import { getCanvasOrderIcon } from '@/3_widgets/map_1/utils/textures.ts'
+import { getCanvasOrderIcon } from '@/3_widgets/map_3/utils/textures.ts'
 
 
 
@@ -17,7 +17,6 @@ export const getOrderIcon = (feature: Feature<Point>, isCluster = false) => {
     //   return getClusterPointStyle(dataForStyle);
     // }
   };
-
   return getIconStyle();
 };
 

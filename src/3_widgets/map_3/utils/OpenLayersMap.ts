@@ -4,17 +4,14 @@ import Kinetic from 'ol/Kinetic';
 import View from 'ol/View';
 import Tile from 'ol/layer/Tile';
 import { XYZ } from 'ol/source';
-import { polylineRouteLayer } from '@/3_widgets/map_1/ol/layers/getRouteLayer.ts';
-import { ordersLayerModule } from '@/3_widgets/map_1/ol/layers/ordersLayerModule.ts'
+import { ordersLayerModule } from '@/3_widgets/map_3/ol/layers/ordersLayerModule.ts'
 
 //Pattern singleton
 export class OpenLayersMap {
   private static mapInstance: Map;
   private static createMapInstance() {
-    const routeLayer = polylineRouteLayer();
     const ordersLayer = ordersLayerModule.getOrdersLayer();
 
-    // const ordersClusteredLayer = ordersLayerModule.getOrdersClusteredLayer();
     return new Map({
       interactions: [
         new DragPan({
@@ -40,9 +37,7 @@ export class OpenLayersMap {
             tilePixelRatio: 2,
           }),
         }),
-        routeLayer,
         ordersLayer,
-        // ordersClusteredLayer
       ],
       target: 'map',
     });

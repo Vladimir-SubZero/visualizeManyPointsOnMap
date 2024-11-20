@@ -1,7 +1,6 @@
 import { Order, ResponseBodyOrders } from '@/6_shared/types/dto-types.ts'
 import { Nullable } from '@/6_shared/types/frontend-utility-types.ts'
 import { BackendApiError, DataStateKey } from '@/6_shared/types/frontend-data-types.ts'
-import { n } from 'vitest/dist/chunks/reporters.C4ZHgdxQ'
 
 export type OrdersStore = {
   state: State;
@@ -21,7 +20,8 @@ type State = {
   countersPerformance: {
     durationRequest: number;
     durationScripts: number;
-  }
+  };
+  activeCountOrders: number;
 
 };
 
@@ -35,4 +35,5 @@ type Actions = {
   loadOrders: (countOrders?: number) => Promise<void>;
   setDurationRequest: (time: number) => void
   setDurationScripts: (time: number) => void
+  setActiveCountOrders: (countOrders: number) => void
 };

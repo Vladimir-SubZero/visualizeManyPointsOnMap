@@ -1,26 +1,14 @@
 <script setup lang="ts">
 import Menu from '@/6_shared/ui/Menu.vue';
-import LoaderOrders from '@/6_shared/ui/LoaderOrders.vue'
-import PerformanceCounters from '@/6_shared/ui/PerformanceCounters.vue'
+
 </script>
 
 <template>
   <div class="root">
     <div class="root__menu"><Menu /></div>
     <div class="root__content">
-      <div class="root__wrapMapAndLoader">
-        <div class="root__map">
-          <router-view></router-view>
-        </div>
-        <div class="root__loaderOrders">
-          <LoaderOrders/>
-        </div>
-      </div>
-      <div class="root__counters">
-        <PerformanceCounters />
-      </div>
+      <router-view></router-view>
     </div>
-
   </div>
 </template>
 

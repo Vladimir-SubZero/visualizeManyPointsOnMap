@@ -12,7 +12,7 @@ import { getRequestAbortController } from '@/6_shared/request-abort-controller'
 import { handleRequestError } from '@/6_shared/utils/error/handle-request-error.ts'
 import { BackendApiError } from '@/6_shared/types/frontend-data-types.ts'
 import { OrdersStore } from '@/6_shared/services/pinia-stores/ordersStore/types.ts'
-import { loadOrdersOnGisMap } from '@/3_widgets/map_1/actions/ordersActions.ts'
+
 
 const abortControllers: Record<'loadOrders', Nullable<AbortController>> = {
   loadOrders: null,
@@ -35,7 +35,8 @@ export const initialState: State = {
   countersPerformance: {
     durationRequest: 0,
     durationScripts: 0,
-  }
+  },
+  activeCountOrders: 1000
 };
 
 export const useOrdersStore = defineStore<'ordersStore', State, Store['getters'], Store['actions']>({
@@ -73,7 +74,6 @@ export const useOrdersStore = defineStore<'ordersStore', State, Store['getters']
           const timeRequest = endDurationRequest - startDurationRequest
           this.setDurationRequest(timeRequest);
 
-          loadOrdersOnGisMap(data.orders);
         }
         ordersApi.loadingState = getDataLoadedKey();
       } catch (error) {
@@ -85,9 +85,6 @@ export const useOrdersStore = defineStore<'ordersStore', State, Store['getters']
           ordersApi.backendApiError = backendApiError;
         });
       }
-
-
-
     },
 
     setDurationRequest(time) {
@@ -95,6 +92,9 @@ export const useOrdersStore = defineStore<'ordersStore', State, Store['getters']
     },
     setDurationScripts(time) {
       this.$state.countersPerformance.durationScripts = time
+    },
+    setActiveCountOrders(countOrders) {
+      this.$state.activeCountOrders = countOrders
     },
   },
 });

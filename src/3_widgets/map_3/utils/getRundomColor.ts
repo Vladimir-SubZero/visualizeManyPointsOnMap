@@ -16,8 +16,10 @@ export const getRandomColor = (onlyPerfect: boolean) => {
     '255, 5, 5',
   ]
   if (onlyPerfect) {
-    const color =colors[Math.floor(Math.random() * colors.length)];
+    const color = colors[Math.floor(Math.random() * colors.length)];
     return 'rgb(' + color + ')'
   }
   return `rgb(${r}, ${g}, ${b})`;
 }
+
+

@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { AxiosRequestConfig, AxiosResponse, ResponseType } from 'axios';
 import { ResponseBodyOrders } from '@/6_shared/types/dto-types'
 import { DATA_STATES, HTTP_METHODS } from '@/6_shared/constants'
 import { UnknownRecord } from '@/6_shared/types/frontend-utility-types'
@@ -19,6 +19,7 @@ export type JsTypesInLowerCase =
   | 'date';
 
 export type RequestSettings = {
+  responseType?: ResponseType;
   headers?: Record<string, string>;
   abortSignal?: AxiosRequestConfig['signal'];
 };

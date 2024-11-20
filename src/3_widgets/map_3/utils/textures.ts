@@ -1,6 +1,7 @@
 export const getCanvasOrderIcon = (colorIcon: string) => {
   const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d', { willReadFrequently: true }) as CanvasRenderingContext2D;
+  const ctx = canvas.getContext(
+    '2d', { willReadFrequently: true }) as CanvasRenderingContext2D;
 
   const padding = 12; // паддинг необходим для создания тени фигуры
   const lineWidth = 4;
