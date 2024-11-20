@@ -1,7 +1,5 @@
-import {
-  ResponseBodyOrders
-} from '../../../common/dto-types'
-import { getOrders } from '../utils/generator-points'
+import { ResponseBodyOrders } from '../../../common/dto-types';
+import { getOrders } from '../utils/generator-points';
 
 // const order1: Order = {
 //   orderId: 1,
@@ -27,7 +25,6 @@ import { getOrders } from '../utils/generator-points'
 //   clientBarcode: 'unscheduled-client-barcode',
 // };
 
-
 // const allOrders = [
 //   { ...order1 },
 //
@@ -43,4 +40,5 @@ import { getOrders } from '../utils/generator-points'
 // };
 
 //Количество заказов не должно быть меньше количества зон
-export const bodyOrders: (countOrders: number) => ResponseBodyOrders = getOrders;
+export const bodyOrders: (countOrders: number) => ResponseBodyOrders =
+  getOrders;

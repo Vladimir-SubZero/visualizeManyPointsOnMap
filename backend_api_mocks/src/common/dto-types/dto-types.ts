@@ -1,6 +1,6 @@
 export type RequestParams = {
   countOrders: number;
-}
+};
 export type ResponseBodyOrders = {
   orders: Order[];
   total: number;
@@ -9,7 +9,6 @@ export type ResponseBodyOrders = {
   warnings: string[];
   infos: string[];
 };
-
 
 export type Order = {
   orderId: number;
@@ -20,19 +19,18 @@ export type Order = {
     address: string;
     latitude: number;
     longitude: number;
-  },
-  isDrop: boolean;
+  };
+  isDelivery: boolean;
   clientName?: string;
   isValid: boolean;
   duration: number;
   volume: number;
   weight: number;
   isKGT: boolean;
-  schedulingZoneId?: number;
-  schedulingZoneName?: string;
+  territoryId?: number;
+  territoryName?: string;
   contactNumber?: string;
-  contactPerson?: string;
-  clientBarcode?: string;
+  clientInfo?: string;
 };
 
 export type Territory = {
@@ -40,4 +38,4 @@ export type Territory = {
   name: string;
   area: string;
   color: string;
-}
+};
