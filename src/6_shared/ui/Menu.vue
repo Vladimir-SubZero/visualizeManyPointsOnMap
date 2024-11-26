@@ -28,11 +28,34 @@
       <router-link to="/map_3">
         <div class="wrapLink">
           <span class="titleLink">Карта №3</span>
-          <span class="subTitleLink">...</span>
+          <span class="subTitleLink">Растрирование</span>
         </div>
       </router-link>
     </el-menu-item>
-
+    <el-menu-item index="4">
+      <router-link to="/map_4">
+        <div class="wrapLink">
+          <span class="titleLink">Карта №4</span>
+          <span class="subTitleLink">Статические стили</span>
+        </div>
+      </router-link>
+    </el-menu-item>
+    <el-menu-item index="5">
+      <router-link to="/map_5">
+        <div class="wrapLink">
+          <span class="titleLink">Карта №5</span>
+          <span class="subTitleLink">Кластеризация</span>
+        </div>
+      </router-link>
+    </el-menu-item>
+    <el-menu-item index="6">
+      <router-link to="/map_6">
+        <div class="wrapLink">
+          <span class="titleLink">Карта №6</span>
+          <span class="subTitleLink">WebGL</span>
+        </div>
+      </router-link>
+    </el-menu-item>
   </el-menu>
 </template>
 

@@ -68,6 +68,7 @@ export const useOrdersStore = defineStore<'ordersStore', State, Store['getters']
         if (data) {
           ordersApi.backendApiError = null;
           ordersApi.serverData = data;
+          // ordersApi.convertedServerData.convertedOrders = [data.orders[0]]
           ordersApi.convertedServerData.convertedOrders = data.orders
 
           const endDurationRequest = window.performance.now();

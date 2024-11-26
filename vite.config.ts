@@ -3,11 +3,13 @@ import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import vitePluginRequire from 'vite-plugin-require';
 import path from 'path';
 
 export default defineConfig({
   plugins: [
     vue(),
+    vitePluginRequire.default(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
@@ -16,7 +18,9 @@ export default defineConfig({
     }),
   ],
   base: './',
-  build: {},
+  build: {
+    commonjsOptions: { transformMixedEsModules: true } // Change
+  },
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
   },

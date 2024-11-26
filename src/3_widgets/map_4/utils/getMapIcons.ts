@@ -50,9 +50,9 @@ export const orderIconsModule = (function() {
       const config: ConfigStyleIcons = {typeIcon: 'SQUARE', color: color}
       // const cacheStyle = getStyleByCache(config)
       // if (!cacheStyle) {
-        const style = createOrderStyleIcon(config)
-        // setStyleToCache(config, style)
-        return [style]
+      const style = createOrderStyleIcon(config)
+      // setStyleToCache(config, style)
+      return [style]
       // }
       // return [cacheStyle]
     }
