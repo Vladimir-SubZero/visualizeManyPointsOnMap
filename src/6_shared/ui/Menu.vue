@@ -56,11 +56,19 @@
         </div>
       </router-link>
     </el-menu-item>
+    <el-menu-item index="7">
+      <router-link to="/map_7">
+        <div class="wrapLink">
+          <span class="titleLink">Карта №7</span>
+          <span class="subTitleLink">Комплексная оптимизация</span>
+        </div>
+      </router-link>
+    </el-menu-item>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
-  import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router'
 
 const router = useRouter()

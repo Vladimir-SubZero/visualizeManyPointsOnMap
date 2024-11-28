@@ -5,6 +5,7 @@ import Map3 from '@/2_pages/map_3/ui/Map3.vue';
 import Map4 from '@/2_pages/map_4/ui/Map4.vue';
 import Map5 from '@/2_pages/map_5/ui/Map5.vue';
 import Map6 from '@/2_pages/map_6/ui/Map6.vue';
+import Map7 from '@/2_pages/map_7/ui/Map7.vue';
 
 export const appRouter = createRouter({
   history: createWebHistory(),
@@ -34,6 +35,11 @@ export const appRouter = createRouter({
       path: '/map_6',
       name: 'Map6',
       component: Map6,
+    },
+    {
+      path: '/map_7',
+      name: 'Map7',
+      component: Map7,
     },
   ],
 });
